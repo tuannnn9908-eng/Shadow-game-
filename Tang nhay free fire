@@ -1,0 +1,37 @@
+#!name=Free Fire iPhone Speed Boost
+#!desc=Tối ưu kết nối, giảm ping và input delay khi chơi Free Fire trên iPhone
+#!author=GPT-5
+#!version=1.0
+#!category=Game Optimization
+
+[General]
+# DNS nhanh và ổn định nhất cho iPhone
+dns-server=1.1.1.1,8.8.8.8,9.9.9.9
+always-reject-url-rewrite=true
+skip-proxy=localhost,*.local,*.lan
+ipv6=false
+
+[Rule]
+# Route chính cho Free Fire
+DOMAIN-SUFFIX,freefiremobile.com,PROXY
+DOMAIN-SUFFIX,ff.garena.com,PROXY
+DOMAIN-SUFFIX,garena.com,PROXY
+DOMAIN-SUFFIX,garena.sg,PROXY
+
+# Chặn tracking và request không cần thiết
+DOMAIN-SUFFIX,app-measurement.com,REJECT
+DOMAIN-SUFFIX,googletagmanager.com,REJECT
+DOMAIN-SUFFIX,crashlytics.com,REJECT
+DOMAIN-SUFFIX,doubleclick.net,REJECT
+DOMAIN-SUFFIX,facebook.com,REJECT
+DOMAIN-SUFFIX,facebook.net,REJECT
+
+[URL-REJECTION]
+^https?:\/\/(www\.)?googleads\.g\.doubleclick\.net\/.* - reject
+^https?:\/\/(www\.)?app-measurement\.com\/.* - reject
+
+[Host]
+# Cố định DNS riêng cho Free Fire để giảm độ trễ
+freefiremobile.com = server:1.1.1.1
+ff.garena.com = server:1.1.1.1
+garena.com = server:8.8.8.8
