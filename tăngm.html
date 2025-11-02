@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tán Crush Linh Chi 💘</title>
+  <style>
+    :root{
+      --bg1: #fff6fb;
+      --bg2: #fff0f3;
+      --accent: #ff5da2;
+      --accent2: #ff8fc1;
+      --text: #3b2a2f;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Poppins", "Helvetica Neue", sans-serif;
+      background: radial-gradient(circle at 10% 10%, var(--bg2), var(--bg1));
+      color:var(--text);
+      overflow:hidden;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .card{
+      background:linear-gradient(180deg,#fff,#fff7fa);
+      border-radius:22px;
+      box-shadow:0 10px 30px rgba(255,120,180,0.15);
+      padding:28px;
+      text-align:center;
+      max-width:700px;
+      position:relative;
+      z-index:5;
+    }
+
+    h1{
+      margin:0 0 8px 0;
+      font-size:clamp(24px, 4vw, 36px);
+      color:var(--accent);
+      text-shadow:0 2px 6px rgba(255,160,200,0.3);
+    }
+
+    p{
+      font-size:17px;
+      color:#513942;
+      line-height:1.5;
+    }
+
+    .heart{
+      position:fixed;
+      bottom:-20px;
+      color:#ff5da2;
+      font-size:24px;
+      animation: float 5s linear infinite;
+      opacity:0.9;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity:1;
+      }
+      100% {
+        transform: translateY(-110vh) translateX(calc(-40px + 80px * random())) scale(1.5);
+        opacity:0;
+      }
+    }
+
+    @keyframes floatUp {
+      from {transform:translateY(0); opacity:1;}
+      to {transform:translateY(-110vh); opacity:0;}
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Linh Chi ơi 💞</h1>
+    <p>Trái tim này cứ tự động bay lên mỗi khi nghĩ về em 💗<br>
+       Mỗi nhịp đập là một lời tỏ tình nhỏ xíu dành riêng cho Linh Chi 💌</p>
+    <p style="font-size:20px;">Mãi thích em 😚✨</p>
+  </div>
+
+  <script>
+    // Tạo hiệu ứng trái tim bay tự động
+    function createHeart(){
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = ['💖','💘','💕','💗','❤️','💞'][Math.floor(Math.random()*6)];
+      heart.style.left = Math.random()*100 + 'vw';
+      heart.style.fontSize = (15 + Math.random()*25) + 'px';
+      heart.style.animationDuration = (4 + Math.random()*3) + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(()=>{ heart.remove(); }, 7000);
+    }
+
+    // Tạo trái tim liên tục
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
